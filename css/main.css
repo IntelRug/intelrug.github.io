@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    float: left;
+    width: 70%;
+}
+
+.cards__item {
+    background: rgb(250, 177, 177);
+    border: 2px solid #8B1A1A;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    height: 150px;
+    width: 100px; 
+}
+
+.cards__number {
+    color: #ffffff;
+    font-size: 60px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+}
+
+.slots {
+    border-right: 1px solid #aeaeae;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    justify-content: center;
+    width: 30%;
+}
+
+.slots__item {
+    background: #EAEAEA;
+    border: 2px dashed #303030;
+    margin: 10px;
+    position: relative;
+    height: 150px;
+    width: 100px;
+}
+
+.slots__item.hovered {
+    background: rgb(193, 236, 189);
+    border: 2px dashed #0C8B3D;
+    margin: 10px;
+    position: relative;
+    height: 150px;
+    width: 100px;
+}
+
+
+.slots__number {
+    color: #303030;
+    font-size: 70px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+}
+
+.notification {
+    background: rgb(78, 223, 73);
+    color: #FFFFFF;
+    left: 50%;
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    transform: translate(-50%, 0);
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+.wrapper {
+    padding-top: 30px;
+}
