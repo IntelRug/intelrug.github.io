@@ -4,6 +4,15 @@ window.onload = function () {
     let cardsBlock = document.getElementsByClassName('cards')[0];
     let notification = document.getElementById('multiple_of_three');
     let cardsInSlots = [];
+
+    window.onresize = function () {
+        for (let i = 0; i < cardsInSlots.length; ++i) {
+            let coords = getCoordinates(cardsInSlots[i].currentHoveredElement);
+            cardsInSlots[i].avatar.style.left = coords.left - 10 + 'px';
+            cardsInSlots[i].avatar.style.top = coords.top - 10 + 'px';
+        }
+    };
+
     let cards = new Cards(slotsBlock, cardsBlock);
     cards.createSlots();
     cards.createCards();
@@ -17,11 +26,11 @@ window.onload = function () {
             dragObject.avatar.style.left = coords.left - 10 + 'px';
             dragObject.avatar.style.top = coords.top - 10 + 'px';
 
-            cardsInSlots.push(dragObject.elem);
+            cardsInSlots.push(dragObject);
             if (cardsInSlots.length === 6) {
                 showNotification();
             } else {
-                hideNotification()
+                hideNotification();
             }
         }
     };
@@ -30,7 +39,7 @@ window.onload = function () {
         dragObject.avatar.rollback() 
         dragObject.avatar = null;
         
-        let index = cardsInSlots.indexOf(dragObject.elem);
+        let index = cardsInSlots.indexOf(dragObject);
         if (index > -1) {
             cardsInSlots.splice(index, 1);
             hideNotification()
@@ -41,7 +50,7 @@ window.onload = function () {
         let Sum = 0;
         
         for (let i = 0; i < cardsInSlots.length; ++i) {
-            Sum += parseInt(cardsInSlots[i].innerText);
+            Sum += parseInt(cardsInSlots[i].elem.innerText);
         }
         
         if (Sum % 3 === 0) {

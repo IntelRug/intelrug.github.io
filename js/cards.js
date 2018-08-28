@@ -3,6 +3,7 @@ class Cards {
     constructor(slotsBlock, cardsBlock) {
         this.slotsBlock = slotsBlock;
         this.cardsBlock = cardsBlock;
+        this.cards = [];
     }
 
     createSlots() {
